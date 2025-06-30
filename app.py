@@ -1,8 +1,10 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import pandas as pd
 from fuzzywuzzy import process
 
 app = Flask(__name__)
+CORS(app)
 
 # Load your cleaned data
 df = pd.read_csv('data/courses.csv')
@@ -25,3 +27,4 @@ def search():
 
 if __name__ == '__main__':
     app.run(debug=True, port=5050)
+    
